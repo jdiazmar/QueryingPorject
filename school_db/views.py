@@ -153,6 +153,12 @@ SELECT `school_db_instructor`.`id`,
 # (Do not hard code his name in the print)
 def problem_three(request):
 
+  courses = Instructor.objects.filter(pk=2).get(Course.name)
+
+  for course in courses:
+    print(f'Instructor Name: {Instructor.first_name}{Instructor.last_name}')
+    print(f'Courses: {Course.name}')
+
 
 
     return complete(request)
