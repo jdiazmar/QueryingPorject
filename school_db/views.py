@@ -59,9 +59,9 @@ SELECT `school_db_student`.`id`,
 # Print out each student's full name and gpa to the terminal
 def problem_one(request):
 
-    students = Student.objects.filter(student.gpa >= 3.0).order_by('-pub_date', 'headline')
+    students_gpa = Student.objects.filter(student.gpa >= 3.0).order_by('-pub_date', 'headline')
 
-    for student in students:
+    for student in students_gpa:
       print(f'Full Name: {student.first_name} {student.last_name} GPA: {student.gpa}' )
 
 
@@ -105,6 +105,13 @@ SELECT `school_db_student`.`id`,
 # Order by hire date ascending
 # Print out the instructor's full name and hire date to the terminal
 def problem_two(request):
+
+    instructors_hiredate = Instructor.objects.filter(pub_date_lt='2010-01-01')
+
+    for instructor in instructors_hiredate:
+      print(f'Full Name: {Instructor.first_name}{Instructor.last_name} Hire Date: {Instructor.hire_date}')
+
+ 
 
 
 
