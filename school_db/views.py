@@ -59,6 +59,12 @@ SELECT `school_db_student`.`id`,
 # Print out each student's full name and gpa to the terminal
 def problem_one(request):
 
+    students = Student.objects.filter(student.gpa >= 3.0).order_by('-pub_date', 'headline')
+
+    for student in students:
+      print(f'Full Name: {student.first_name} {student.last_name} GPA: {student.gpa}' )
+
+
 
 
     return complete(request)
