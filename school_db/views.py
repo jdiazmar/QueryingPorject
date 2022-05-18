@@ -109,7 +109,7 @@ def problem_two(request):
     instructors = Instructor.objects.filter(hire_date__year__lt = 2010).order_by('hire_date')
   
     for instructor in instructors:
-      print(f'Full Name: {Instructor.first_name} {Instructor.last_name} Hire Date: {Instructor.hire_date}')
+      print(f'Full Name: {instructor.first_name} {instructor.last_name} Hire Date: {instructor.hire_date}')
 
     return complete(request)
 
