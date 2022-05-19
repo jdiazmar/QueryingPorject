@@ -152,8 +152,8 @@ def problem_three(request):
   courses = Instructor.objects.filter(pk=2).get(Course.name)
   
   for course in courses:
-    print(f'Instructor Name: {Instructor.first_name} {Instructor.last_name}')
-    print(f'Courses: {Course.name}')
+    print(f'Instructor Name: {course.first_name} {course.last_name}')
+    print(f'Courses: {course.name}')
 
   return complete(request)
 
