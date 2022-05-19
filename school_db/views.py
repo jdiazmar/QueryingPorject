@@ -152,7 +152,7 @@ def problem_three(request):
   instructor_pk2 = Instructor.objects.get(pk=2)
   print(f'Instructor Name: {instructor_pk2.first_name} {instructor_pk2.last_name}')
 
-  course_pk2 = Course.objects.filter(id=2)
+  course_pk2 = Course.objects.filter(instructor=2)
 
   
   for course in course_pk2:
