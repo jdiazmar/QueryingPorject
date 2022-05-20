@@ -414,7 +414,6 @@ SELECT `school_db_student`.`id`,
 def bonus_problem(request):
 
 
-
     return complete(request)
 
 
