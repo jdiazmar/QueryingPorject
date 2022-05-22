@@ -1,3 +1,4 @@
+from itertools import count
 from django.shortcuts import render
 from django.db.models import Count
 from django.core.exceptions import ObjectDoesNotExist
@@ -152,7 +153,7 @@ def problem_three(request):
   instructor_pk2 = Instructor.objects.get(pk=2)
   print(f'Instructor Name: {instructor_pk2.first_name} {instructor_pk2.last_name}')
 
-  course_pk2 = Course.objects.filter(instructor=2)
+  course_pk2 = Course.objects.filter(instructor=instructor_pk2.id)
 
   
   for course in course_pk2:
@@ -412,7 +413,10 @@ SELECT `school_db_student`.`id`,
 # Find all of the instructors that only belong to a single course
 # Print out the instructors full name and number of courses to the console
 def bonus_problem(request):
-
+ 
+    courses_with_one_instructor = Instructor.objects.annotate(num_courses=Count("course")).filter(num_courses=1)
+    for course in courses_with_one_instructor:
+      print(course.first_name)
 
     return complete(request)
 
